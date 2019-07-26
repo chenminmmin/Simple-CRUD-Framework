@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.chenmin.dao.Test1DAO">
+
+    <select id="queryById" resultType="Test1">
+        select * from test1
+        <where>
+            <if test="id != null and id != ''">
+                id = #{id}
+            </if>
+        </where>
+    </select>
+
+    <delete id="deleteById">
+        delete from test1 where id = #{id}
+    </delete>
+
+    <update id="updateTest" parameterType="Test1">
+        update test1 set name = #{name} , appId = #{appId} where id = #{id}
+    </update>
+
+    <insert id="add" parameterType="Test1">
+        insert into test1 ( name , appId) values (#{name} , #{appId})
+    </insert>
+
+</mapper>
