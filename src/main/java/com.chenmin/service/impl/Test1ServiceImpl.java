@@ -1,5 +1,6 @@
 package com.chenmin.service.impl;
 
+import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.chenmin.dao.Test1DAO;
 import com.chenmin.entity.Test1;
 import com.chenmin.service.ITest1Service;
@@ -15,29 +16,33 @@ import java.util.List;
  * @Description 测试的 service实现类
  */
 @Service
-public class Test1ServiceImpl implements ITest1Service {
+public class Test1ServiceImpl  implements ITest1Service {
 
     @Autowired
     private Test1DAO test1DAO;
 
     /** 根据testId查询test */
+    @Override
     public List<Test1> queryById(long id){
-        return test1DAO.queryById(id);
+        return test1DAO.selectList(new QueryWrapper<Test1>().eq("id",id));
     }
 
     /** 根据testId删除test */
+    @Override
     public Integer deleteById(long id){
         return test1DAO.deleteById(id);
     }
 
     /** 修改test */
+    @Override
     public Integer updateTest(Test1 test){
-        return test1DAO.updateTest(test);
+        return test1DAO.updateById(test);
     }
 
     /** 新增test */
+    @Override
     public Integer add(Test1 test){
-        return test1DAO.add(test);
+        return test1DAO.insert(test);
     }
 
 

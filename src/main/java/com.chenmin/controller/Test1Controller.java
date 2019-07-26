@@ -39,7 +39,6 @@ public class Test1Controller {
         return "删除成功";
     }
 
-
     // 修改test1
     @PostMapping("/updateTest")
     @ResponseBody
