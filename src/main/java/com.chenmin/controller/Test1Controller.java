@@ -24,7 +24,7 @@ public class Test1Controller {
     // 根据id查询test1
     @PostMapping("/queryById")
     @ResponseBody
-    public List<Test1> queryById(@RequestParam("id") long id) {
+    public Test1 queryById(@RequestParam("id") long id) {
         return test1Service.queryById(id);
     }
 

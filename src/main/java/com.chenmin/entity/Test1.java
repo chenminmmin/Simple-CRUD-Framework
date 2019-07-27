@@ -8,5 +8,5 @@ import lombok.Data;
 public class Test1 {
     Long id;
     String name;
-    long appId;
+    Long appid;
 }

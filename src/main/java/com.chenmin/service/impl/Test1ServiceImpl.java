@@ -1,13 +1,10 @@
 package com.chenmin.service.impl;
 
-import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.chenmin.dao.Test1DAO;
 import com.chenmin.entity.Test1;
 import com.chenmin.service.ITest1Service;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-
-import java.util.List;
 
 /**
  * 包权限管理
@@ -23,8 +20,10 @@ public class Test1ServiceImpl  implements ITest1Service {
 
     /** 根据testId查询test */
     @Override
-    public List<Test1> queryById(long id){
-        return test1DAO.selectList(new QueryWrapper<Test1>().eq("id",id));
+//    public List<Test1> queryById(long id){
+    public Test1 queryById(long id){
+//        return test1DAO.selectList(new QueryWrapper<Test1>().eq("id",id));
+        return test1DAO.selectById(id);
     }
 
     /** 根据testId删除test */
